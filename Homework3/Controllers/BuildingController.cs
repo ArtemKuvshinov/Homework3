@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
-using Homework2.Services.Interfaces;
-using Homework2.Common.Swagger;
-using Homework2.Models.DTO;
+using Homework3.Services.Interfaces;
+using Homework3.Common.Swagger;
+using Homework3.Models.DTO;
 using Moq;
-using Homework2.DataBase.Domain;
+using Homework3.DAL.Domain;
 
-namespace Homework2.Controllers
+namespace Homework3.Controllers
 {
     /// <summary>
     /// Контроллер для сущности Здание.
@@ -37,14 +37,14 @@ namespace Homework2.Controllers
         /// Получение доступного перечня зданий.
         /// </summary>
         /// <returns>Коллекция сущностей "Здание"</returns>
-        [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<BuildingDTO>))]
-        public IActionResult Get()
-        {
-            _logger.LogInformation("Buildings/Get was requested.");
-            var response = _buildingService.GetBuildings();
-            return Ok(response);
-        }
+        //[HttpGet]
+        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<BuildingDTO>))]
+        //public IActionResult Get()
+        //{
+        //    _logger.LogInformation("Buildings/Get was requested.");
+        //    var response = _buildingService.GetBuildings();
+        //    return Ok(response);
+        //}
 
         /// <summary>
         /// Получаает иформацию о здании по идентификатору записи.  

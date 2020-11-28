@@ -1,7 +1,7 @@
-﻿using Homework2.DataBase.Domain;
+﻿using Homework3.DAL.Domain;
 using System.Collections.Generic;
 
-namespace Homework2.DataBase.Mocks
+namespace Homework3.DAL.Mocks
 {
     /// <summary>
     /// Mock для коллекции "Здание".

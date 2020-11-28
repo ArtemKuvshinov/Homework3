@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace Homework2.Models.DTO
+namespace Homework3.Models.DTO
 {
    public class BuildingDTO
     {

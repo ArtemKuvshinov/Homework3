@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Homework2.Models.DTO;
-using Homework2.Services.Interfaces;
+using Homework3.Models.DTO;
+using Homework3.Services.Interfaces;
 using AutoMapper;
-using Homework2.DataBase.Mocks;
-using Homework2.DataBase.Domain;
+using Homework3.DAL.Mocks;
+using Homework3.DAL.Domain;
 using System.Linq;
+using Homework3.DAL.Contexts;
+using Homework3.DAL.Domain;
 
-namespace Homework2.Services.Services
+namespace Homework3.Services.Services
 {
     /// <summary>
     /// Сервис для работы с данными "Здание".
@@ -18,16 +20,19 @@ namespace Homework2.Services.Services
     {
         private List<Building> _listBuilding;
         private readonly IMapper _mapper;
-        
+        private readonly Homework3Context _dbContext;
+
         /// <summary>
         /// Пооключение автомаппера через DI.
         /// </summary>
         /// <param name="mapper"></param>
-        public BuildingService(IMapper mapper)
+        public BuildingService(Homework3Context context, IMapper mapper)
         {
             _mapper = mapper;
+            _dbContext = context;
             _listBuilding = BuildingMock.GetBuilding().ToList<Building>();
         }
+ 
 
         /// <summary>
         /// Получет коллекцию объектов BuildingDTO.

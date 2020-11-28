@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Homework2.Common.Swagger
+namespace Homework3.Common.Swagger
 {
 
     /// <summary>

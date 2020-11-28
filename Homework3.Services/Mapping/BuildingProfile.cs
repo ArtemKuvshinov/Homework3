@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutoMapper;
-using Homework2.DataBase.Domain;
-using Homework2.Models.DTO;
+﻿using AutoMapper;
+using Homework3.DAL.Domain;
+using Homework3.Models.DTO;
 
 
-namespace Homework2.Services.Mapping
+namespace Homework3.Services.Mapping
 {
     /// <summary>
     /// Профиль маппинга (здание).

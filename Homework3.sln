@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3", "Homework3\Homework3.csproj", "{10779168-4693-4DAD-A185-22BC543919CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.DataBase", "Homework3.DataBase\Homework3.DataBase.csproj", "{D17984CC-2D2B-49B9-96A3-466AD580AF3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.DAL", "Homework3.DataBase\Homework3.DAL.csproj", "{D17984CC-2D2B-49B9-96A3-466AD580AF3A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.Models", "Homework3.Models\Homework3.Models.csproj", "{2F57E662-89C5-4506-80DD-EBC9268A7DA5}"
 EndProject
