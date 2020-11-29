@@ -1,17 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+    <Folder Include="Interfaces\CRUD\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Homework3.DataBase\Homework3.DAL.csproj" />
     <ProjectReference Include="..\Homework3.Models\Homework3.Models.csproj" />
-    <ProjectReference Include="..\Homework3.Repositories\Homework3.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,19 +7,7 @@ namespace Homework3.Services.Interfaces
     /// <summary>
     /// Интерфейс для сервиса "Здание".
     /// </summary>
-   public interface IBuildingService
+    public interface IBuildingService : ICrudService<BuildingDTO>
     {
-        IEnumerable<BuildingDTO> GetBuildings();
-
-        BuildingDTO GetBuilding(long id);
-
-        long GetId(Building building);
-
-        void DeleteBuilding(long id);
-
-        void AddBuilding(Building newBuilding);
-
-        void UpdateBuilding(Building building);
-
     }
 }

@@ -4,11 +4,11 @@ using System.Text;
 using Homework3.Models.DTO;
 using Homework3.Services.Interfaces;
 using AutoMapper;
-using Homework3.DAL.Mocks;
 using Homework3.DAL.Domain;
 using System.Linq;
 using Homework3.DAL.Contexts;
-using Homework3.DAL.Domain;
+using Homework3.Repositories.Interfaces;
+using System.Threading;
 
 namespace Homework3.Services.Services
 {
@@ -18,81 +18,46 @@ namespace Homework3.Services.Services
     /// <inheritdoc cref="IBuildingService"/>
     public class BuildingService : IBuildingService
     {
-        private List<Building> _listBuilding;
-        private readonly IMapper _mapper;
-        private readonly Homework3Context _dbContext;
+        private readonly IBuildingRepository _repository;
 
         /// <summary>
-        /// Пооключение автомаппера через DI.
+        /// Инициализирует экземпляр <see cref="BuildingService"/>.
         /// </summary>
-        /// <param name="mapper"></param>
-        public BuildingService(Homework3Context context, IMapper mapper)
+        /// <param name="repository">Репозиторий</param>
+        public BuildingService(IBuildingRepository repository)
         {
-            _mapper = mapper;
-            _dbContext = context;
-            _listBuilding = BuildingMock.GetBuilding().ToList<Building>();
-        }
- 
-
-        /// <summary>
-        /// Получет коллекцию объектов BuildingDTO.
-        /// </summary>
-        /// <returns>Коллекция объектов BuildingDTO</returns>
-        public IEnumerable<BuildingDTO> GetBuildings()
-        {
-            var buildings = _listBuilding;
-            var response = _mapper.Map<IEnumerable<BuildingDTO>>(buildings);
-            return response;
+            _repository = repository;
         }
 
-        /// <summary>
-        /// Получает объект "Здание".
-        /// </summary>
-        /// <param name= "id"> Идентификатор записи</param>
-        /// <returns>Объект BuildingDTO</returns>
-        public BuildingDTO GetBuilding(long id)
+        ///<inheritdoc cref="ICreatable{TDto}.Create(TDto)"/>
+        public BuildingDTO Create(BuildingDTO dto)
         {
-            Building build = _listBuilding.Where(x => x.Id == id).FirstOrDefault<Building>();
-            BuildingDTO result = _mapper.Map<BuildingDTO>(build);
-            return result;
+            return _repository.Create(dto);
         }
 
-        /// <summary>
-        /// Удаляет запись по идентификатору.
-        /// </summary>
-        /// <param name="id">Идентификатор записи</param>
-        public void DeleteBuilding(long id)
+        /// <inheritdoc cref="IGettableById{TDto}.Get(long, CancellationToken)"/>
+        public BuildingDTO Get(long id, CancellationToken token = default)
         {
-            _listBuilding.Remove(_listBuilding.Where(x => x.Id == id).FirstOrDefault<Building>());
+            return _repository.Get(id);
         }
 
-        /// <summary>
-        /// Добавляет новое здание.
-        /// </summary>
-        /// <param name="newBuilding">Новый объект типа Building</param>
-        public void AddBuilding(Building newBuilding)
+        /// <inheritdoc cref="IGettable{TDto}.Get(CancellationToken)"/>
+        public IEnumerable<BuildingDTO> Get(CancellationToken token = default)
         {
-            _listBuilding.Add(newBuilding);
-        }
-        
-        /// <summary>
-        /// Изменяет объект Здание.
-        /// </summary>
-        /// <param name="Building">Измененый объект типа Building</param>
-        public void UpdateBuilding(Building building)
-        {
-            int index = _listBuilding.FindIndex(x => x.Id == building.Id);
-            _listBuilding[index] = building;
+            return _repository.Get();
         }
 
-        /// <summary>
-        /// Возращает иднтификатор записи.
-        /// </summary>
-        /// <param name="building">Сущность Здание</param>
-        /// <returns>Идентификатор записи</returns>
-        public long GetId(Building building)
+        /// <inheritdoc cref="IUpdatable{TDto}.Update(TDto)"/>
+        public BuildingDTO Update(BuildingDTO dto)
         {
-            return building.Id;
+            return _repository.Update(dto);
         }
+
+        /// <inheritdoc cref="IDeletable.Delete(long[])"/>
+        public void Delete(params long[] ids)
+        {
+            _repository.Delete(ids);
+        }
+
     }
 }

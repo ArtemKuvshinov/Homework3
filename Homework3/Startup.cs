@@ -16,6 +16,9 @@ using Homework3.Services.Services;
 using AutoMapper;
 using System.Reflection;
 using Homework3.DAL.Bootstrap;
+using Homework3.Repositories;
+using Homework3.Controllers;
+using Homework3.Repositories.Bootstrap;
 
 namespace Homework3
 {
@@ -31,9 +34,13 @@ namespace Homework3
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureDb(Configuration);
+            services.ConfigureRepositories();
             services.AddControllers();
             services.ConfigureServices();
-            services.AddAutoMapper(typeof(BuildingService).GetTypeInfo().Assembly);
+            services.AddAutoMapper(
+                 typeof(BuildingRepository).GetTypeInfo().Assembly,
+                 typeof(BuildingController).GetTypeInfo().Assembly
+             );
             services.ConfigureSwagger();
         }
 

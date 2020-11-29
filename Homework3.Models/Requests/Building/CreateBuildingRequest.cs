@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Homework3.DAL.Domain;
 using System.ComponentModel.DataAnnotations;
-using Homework3.DAL.Domain;
 
-namespace Homework3.Models.DTO
+namespace Homework3.Models.Requests.Building
 {
-   public class BuildingDTO : BaseDto
+    /// <summary>
+    /// Запрос на создание новой записи Здание
+    /// </summary>
+    public class CreateBuildingRequest
     {
         /// <summary>
-        /// Адрес здания.
+        /// Адрес.
         /// </summary>
+        [StringLength(200)]
         [Required]
-        [MaxLength(200)]
         public string Address { get; set; }
-
-        /// <summary>
-        ///  Назначение здания.
-        /// </summary>
-        [Required]
-        [MaxLength(100)]
-        public string Purpose { get; set; }
 
         /// <summary>
         /// Количетсво этажей.
@@ -31,8 +24,14 @@ namespace Homework3.Models.DTO
         /// <summary>
         /// Кадастровый номер.
         /// </summary>
+        [StringLength(16)]
         [Required]
-        [RegularExpression(@"\d{2}[:]\d{6,7}[:]\d{2}[:]\d{2}")]
         public string CadastralNumber { get; set; }
+
+        /// <summary>
+        /// Назначение здания
+        /// </summary>
+        [StringLength(200)]
+        public string Purpose { get; set; }
     }
 }

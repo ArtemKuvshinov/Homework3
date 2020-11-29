@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Homework3.DAL.Domain;
-
+using System.Threading;
+using System;
 
 namespace Homework3.DAL.Contexts
 {
@@ -15,8 +16,8 @@ namespace Homework3.DAL.Contexts
         /// <param name="options">Опции для конфигурации контекста.</param>
         public Homework3Context(DbContextOptions options) : base(options)
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
         }
 
         /// <summary>
@@ -38,5 +39,10 @@ namespace Homework3.DAL.Contexts
         /// Маериалы используемые в конкетном здании.
         /// </summary>
         public DbSet<BuildingСomposition> BuildingСompositions { get; set; }
+
+        public void SaveChanges(CancellationToken token)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

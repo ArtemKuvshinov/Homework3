@@ -27,6 +27,7 @@ namespace Homework3.DAL.Domain
         /// </summary>
         [StringLength(100)]
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
     }
 }

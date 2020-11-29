@@ -8,6 +8,10 @@ using Homework3.Common.Swagger;
 using Homework3.Models.DTO;
 using Moq;
 using Homework3.DAL.Domain;
+using AutoMapper;
+using Homework3.Models.Requests.Building;
+using Homework3.Models.Responses.Building;
+using System.Threading;
 
 namespace Homework3.Controllers
 {
@@ -21,75 +25,57 @@ namespace Homework3.Controllers
     {
         private readonly ILogger<BuildingController> _logger;
         private readonly IBuildingService _buildingService;
+        private readonly IMapper _mapper;
 
         /// <summary>
         /// Инициализирует экземпляр <see cref="BuildingController"/> c помощью DI.
         /// </summary>
         /// <param name="buildingService">Сервис "Здание".</param>
         /// <param name="logger">Логгер.</param>
-        public BuildingController(IBuildingService buildingService, ILogger<BuildingController> logger)
+        public BuildingController(IBuildingService buildingService, ILogger<BuildingController> logger, IMapper mapper)
         {
             _buildingService = buildingService;
             _logger = logger;
+            _mapper = mapper;
         }
 
         /// <summary>
-        /// Получение доступного перечня зданий.
+        ///  Получение списка зданий.
         /// </summary>
-        /// <returns>Коллекция сущностей "Здание"</returns>
-        //[HttpGet]
-        //[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<BuildingDTO>))]
-        //public IActionResult Get()
-        //{
-        //    _logger.LogInformation("Buildings/Get was requested.");
-        //    var response = _buildingService.GetBuildings();
-        //    return Ok(response);
-        //}
+        /// <returns>Коллекция сущностей Здание</returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<BuildingResponse>))]
+        public IActionResult Get(CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("Building/Get was requested.");
+            var response = _buildingService.Get(cancellationToken);
+            return Ok(_mapper.Map<IEnumerable<BuildingResponse>>(response));
+        }
 
         /// <summary>
-        /// Получаает иформацию о здании по идентификатору записи.  
+        /// Получение здания по Id.
         /// </summary>
-        /// <param name="id">Идентификатор записи</param>
-        /// <returns>Объект BuildingDTO</returns>
-        /// /// <response code="404">Элемент не найден</response>
+        /// <returns>Cущность Здание.</returns>
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BuildingDTO))]
-        public IActionResult Get(long id)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BuildingResponse))]
+        public IActionResult GetById(long id, CancellationToken cancellationToken)
         {
-            var response = _buildingService.GetBuilding(id);
-
-            if (response == null)
-            {
-                _logger.LogInformation("Building/Object not found");
-                return NotFound();
-            }
-            else
-            {
-                _logger.LogInformation("Building/Object was received");
-                return Ok(response);
-            }
+            _logger.LogInformation("Building/GetById was requested.");
+            var response = _buildingService.Get(id, cancellationToken);
+            return Ok(_mapper.Map<BuildingResponse>(response));
         }
 
         /// <summary>
-        /// Удаляет здание.
+        /// Изменение сущности Здание.
         /// </summary>
-        /// <param name="id"></param>        
-        /// <response code="404">Элемент не найден</response>  
-        [HttpDelete]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(NoContentResult))]
-        public IActionResult Delete(long id)
+        /// <returns>Измененная сущность Здание.</returns>
+        [HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BuildingResponse))]
+        public IActionResult Put(UpdateBuildingRequest request, CancellationToken cancellationToken)
         {
-            var deletedBuilding = _buildingService.GetBuilding(id);
-
-            if (deletedBuilding == null)
-            {
-                _logger.LogInformation("Building/Deleted object not found");
-                return NotFound();
-            }
-
-            _buildingService.DeleteBuilding(id);
-            _logger.LogInformation("Building/Object was deleted");
-            return NoContent();
+            _logger.LogInformation("Building/Put was requested.");
+            var response = _buildingService.Update(_mapper.Map<BuildingDTO>(request));
+            return Ok(_mapper.Map<BuildingResponse>(response));
         }
 
         /// <summary>
@@ -98,36 +84,24 @@ namespace Homework3.Controllers
         /// <param name="newBuilding">Новая сущность "Здание"</param>
         /// <returns></returns>
         [HttpPost]
-        [ProducesResponseType(typeof(Building), 200)]
-        public IActionResult Add([FromBody]Building newBuilding)
+        [ProducesResponseType(typeof(BuildingResponse), 200)]
+        public IActionResult Post(CreateBuildingRequest request)
         {
-            _buildingService.AddBuilding(newBuilding);
-            _logger.LogInformation("Building/Object was added.");
-            return Ok(newBuilding);
+            _logger.LogInformation("Buildings/Post was requested.");
+            var response =_buildingService.Create(_mapper.Map<BuildingDTO>(request));
+            return Ok(_mapper.Map<BuildingResponse>(response));
         }
 
         /// <summary>
-        /// Изменяет информацию о здании.
+        /// Удаление сущностей Здание.
         /// </summary>
-        /// <param name="building">Изменяемая сущность</param>
-        /// <returns></returns>
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BuildingDTO))]
-        [HttpPut]
-        public IActionResult Put(Building building)
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public IActionResult Delete(CancellationToken cancellationToken, params long[] ids)
         {
-            var updatedBuilding = _buildingService.GetBuilding(building.Id);
-
-            if (updatedBuilding == null)
-            {
-                _logger.LogInformation("Building/Object not found");
-                return NotFound();
-            }
-            else
-            {
-                _buildingService.UpdateBuilding(building);
-                _logger.LogInformation("Building/Object was received");
-                return Ok(updatedBuilding);
-            }
+            _logger.LogInformation("Building/Delete was requested.");
+            _buildingService.Delete(ids);
+            return NoContent();
         }
 
     }

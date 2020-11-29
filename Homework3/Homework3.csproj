@@ -20,6 +20,8 @@
     
   
   <ItemGroup>
+    <ProjectReference Include="..\Homework3.Models\Homework3.Models.csproj" />
+    <ProjectReference Include="..\Homework3.Repositories\Homework3.Repositories.csproj" />
     <ProjectReference Include="..\Homework3.Services\Homework3.Services.csproj" />
   </ItemGroup>
 

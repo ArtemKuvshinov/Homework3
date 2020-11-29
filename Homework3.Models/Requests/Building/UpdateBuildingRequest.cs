@@ -1,18 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Homework3.DAL.Domain
+namespace Homework3.Models.Requests.Building
 {
-    /// <summary>
-    /// Здание.
-    /// </summary>
-    public class Building : BaseEntity
+    public class UpdateBuildingRequest
     {
         /// <summary>
-        /// Идентификатор записи.
+        /// Идентификатор сущности.
         /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public long Id { get; set; }
 
         /// <summary>
@@ -40,10 +35,5 @@ namespace Homework3.DAL.Domain
         /// </summary>
         [StringLength(200)]
         public string Purpose { get; set; }
-
-        /// <summary>
-        /// Застройщик.
-        /// </summary>
-        public ConstructionCompany ConstructionCompany { get; set;}
     }
 }
