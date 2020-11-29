@@ -85,7 +85,7 @@ namespace Homework3.Controllers
         public IActionResult Post(CreateBuildingRequest request)
         {
             _logger.LogInformation("Buildings/Post was requested.");
-            var response =_buildingService.Create(_mapper.Map<BuildingDTO>(request));
+            var response =_buildingService.Create(_mapper.Map<BuildingDTO>(request));            
             return Ok(_mapper.Map<BuildingResponse>(response));
         }
 
