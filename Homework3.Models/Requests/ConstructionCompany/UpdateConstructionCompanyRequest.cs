@@ -1,13 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Homework3.DAL.Domain
-{
+namespace Homework3.Models.Requests.ConstructionCompany
+{ 
     /// <summary>
-    /// Строительная компания.
+    /// Запрос на изменение записи Застройщик.
     /// </summary>
-    public class ConstructionCompany : BaseEntity
+    public class UpdateConstructionCompanyRequest
     {
+        /// <summary>
+        /// Идентификатор сущности.
+        /// </summary>
+        [Required]
+        public long Id { get; set; }
+
         /// <summary>
         /// Наименование.
         /// </summary>

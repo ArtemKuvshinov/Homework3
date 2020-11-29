@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations;
-using Homework3.DAL.Domain;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Homework3.Models.DTO
 {

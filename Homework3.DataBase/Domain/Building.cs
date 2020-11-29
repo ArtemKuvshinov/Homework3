@@ -9,13 +9,6 @@ namespace Homework3.DAL.Domain
     public class Building : BaseEntity
     {
         /// <summary>
-        /// Идентификатор записи.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
-
-        /// <summary>
         /// Адрес.
         /// </summary>
         [StringLength(200)]

@@ -9,13 +9,6 @@ namespace Homework3.DAL.Domain
     public class Material : BaseEntity
     {
         /// <summary>
-        /// Идентификатор записи.
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
-
-        /// <summary>
         /// Наименование.
         /// </summary>
         [StringLength(300)]

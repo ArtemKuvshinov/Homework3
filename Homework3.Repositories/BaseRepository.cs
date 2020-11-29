@@ -15,8 +15,8 @@ namespace Homework3.Repositories
     /// </summary>
     /// <typeparam name="TDto">DTO.</typeparam>
     /// <typeparam name="TModel">Доменная модель.</typeparam>
-    public abstract class BaseRepository<TDto, TModel> : ICrudRepository<TDto, TModel> where TDto : BuildingDTO
-                                                                                       where TModel : Building
+    public abstract class BaseRepository<TDto, TModel> : ICrudRepository<TDto, TModel> where TDto : BaseDto
+                                                                                       where TModel : BaseEntity
     {
         private readonly IMapper _mapper;
         protected readonly Homework3Context _сontext;
@@ -85,14 +85,13 @@ namespace Homework3.Repositories
         /// Изменяет экземпляр сущности.
         /// </summary>
         /// <param name="dto">Изменяемая сущность DTO</param>
-        /// <param name="token">Экземпляр <see cref="CancellationToken"/>.</param>
         /// <returns>Измененный экземпляр сущности.</returns>
-        public TDto Update(TDto dto, CancellationToken token = default)
+        public TDto Update(TDto dto)
         {
             var entity = _mapper.Map<TModel>(dto);
 
             _сontext.Update(entity);
-            _сontext.SaveChanges(token);
+            _сontext.SaveChanges();
 
             var newEntity = Get(entity.Id);
             return _mapper.Map<TDto>(newEntity);

@@ -14,5 +14,10 @@ namespace Homework3.Common.Swagger
         /// Константа для swagger-документа "Здание".
         /// </summary>
         public const string Buildings = nameof(Buildings);
+
+        /// <summary>
+        /// Константа для swagger-документа "Застройщик".
+        /// </summary>
+        public const string ConstructionCompany = nameof(ConstructionCompany);
     }
 }

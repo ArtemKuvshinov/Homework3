@@ -37,9 +37,12 @@ namespace Homework3
             services.ConfigureRepositories();
             services.AddControllers();
             services.ConfigureServices();
+          
             services.AddAutoMapper(
                  typeof(BuildingRepository).GetTypeInfo().Assembly,
-                 typeof(BuildingController).GetTypeInfo().Assembly
+                 typeof(BuildingController).GetTypeInfo().Assembly,
+                 typeof(ConstructionCompanyRepository).GetTypeInfo().Assembly,
+                 typeof(ConstructionCompanyController).GetTypeInfo().Assembly
              );
             services.ConfigureSwagger();
         }

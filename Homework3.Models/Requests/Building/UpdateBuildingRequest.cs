@@ -2,6 +2,9 @@
 
 namespace Homework3.Models.Requests.Building
 {
+    /// <summary>
+    /// Запрос на изменение записи Здание
+    /// </summary>
     public class UpdateBuildingRequest
     {
         /// <summary>

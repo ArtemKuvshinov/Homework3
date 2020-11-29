@@ -1,12 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Homework3.DAL.Domain
+namespace Homework3.Models.DTO
 {
-    /// <summary>
-    /// Строительная компания.
-    /// </summary>
-    public class ConstructionCompany : BaseEntity
+    public class ConstructionCompanyDTO : BaseDto
     {
         /// <summary>
         /// Наименование.

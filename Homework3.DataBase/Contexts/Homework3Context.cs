@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Homework3.DAL.Domain;
-using System.Threading;
-using System;
 
 namespace Homework3.DAL.Contexts
 {
@@ -40,9 +38,5 @@ namespace Homework3.DAL.Contexts
         /// </summary>
         public DbSet<BuildingСomposition> BuildingСompositions { get; set; }
 
-        public void SaveChanges(CancellationToken token)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

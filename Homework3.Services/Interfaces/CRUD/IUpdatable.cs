@@ -11,7 +11,6 @@
         /// Изменение сущности.
         /// </summary>
         /// <param name="dto">DTO.</param>
-        /// <param name="token">Экземпляр <see cref="CancellationToken"/>.</param>
         /// <returns>Обновленная сущность.</returns>
         TDto Update(TDto dto);
     }

@@ -16,6 +16,7 @@ namespace Homework3.Repositories.Bootstrap
         public static void ConfigureRepositories(this IServiceCollection services)
         {
             services.AddScoped<IBuildingRepository, BuildingRepository>();
+            services.AddScoped<IConstructionCompanyRepository, ConstructionCompanyRepository>();
         }
     }
 }

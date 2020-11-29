@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Homework3.Services.Interfaces;
 using Homework3.Common.Swagger;
 using Homework3.Models.DTO;
-using Moq;
-using Homework3.DAL.Domain;
 using AutoMapper;
 using Homework3.Models.Requests.Building;
 using Homework3.Models.Responses.Building;
