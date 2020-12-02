@@ -5,7 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Interfaces\CRUD\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Homework3.DataBase\Homework3.DAL.csproj" />
+    <ProjectReference Include="..\Homework3.Models\Homework3.Models.csproj" />
   </ItemGroup>
 
 </Project>

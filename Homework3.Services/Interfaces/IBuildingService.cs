@@ -1,26 +1,13 @@
 ﻿using System.Collections.Generic;
-using Homework2.Models.DTO;
-using Homework2.DataBase.Domain;
+using Homework3.Models.DTO;
+using Homework3.DAL.Domain;
 
-namespace Homework2.Services.Interfaces
+namespace Homework3.Services.Interfaces
 {
     /// <summary>
     /// Интерфейс для сервиса "Здание".
     /// </summary>
-   public interface IBuildingService
+    public interface IBuildingService : ICrudService<BuildingDTO>
     {
-        IEnumerable<BuildingDTO> GetBuildings();
-
-        BuildingDTO GetBuilding(long id);
-
-        long GetId(Building building);
-
-        void DeleteBuilding(long id);
-
-        void AddBuilding(Building newBuilding);
-
-        void UpdateBuilding(Building building);
-
-     
     }
 }

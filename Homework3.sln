@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3", "Homework3\Homework3.csproj", "{10779168-4693-4DAD-A185-22BC543919CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.DataBase", "Homework3.DataBase\Homework3.DataBase.csproj", "{D17984CC-2D2B-49B9-96A3-466AD580AF3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.DAL", "Homework3.DataBase\Homework3.DAL.csproj", "{D17984CC-2D2B-49B9-96A3-466AD580AF3A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.Models", "Homework3.Models\Homework3.Models.csproj", "{2F57E662-89C5-4506-80DD-EBC9268A7DA5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework3.Services", "Homework3.Services\Homework3.Services.csproj", "{3A4E9005-AD04-47B9-B80F-E5FA4EB27C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework3.Repositories", "Homework3.Repositories\Homework3.Repositories.csproj", "{5D6187C7-EDF8-43AD-B63C-DD19524D1E20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3A4E9005-AD04-47B9-B80F-E5FA4EB27C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A4E9005-AD04-47B9-B80F-E5FA4EB27C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A4E9005-AD04-47B9-B80F-E5FA4EB27C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6187C7-EDF8-43AD-B63C-DD19524D1E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6187C7-EDF8-43AD-B63C-DD19524D1E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6187C7-EDF8-43AD-B63C-DD19524D1E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6187C7-EDF8-43AD-B63C-DD19524D1E20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

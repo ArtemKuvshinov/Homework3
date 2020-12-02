@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Homework2.Common.Swagger
+namespace Homework3.Common.Swagger
 {
 
     /// <summary>
@@ -20,7 +20,16 @@ namespace Homework2.Common.Swagger
                 c.DocumentName = SwaggerDocParts.Buildings;
                 c.ApiGroupNames = new[] { SwaggerDocParts.Buildings };
                 c.GenerateXmlObjects = true;
+            }).
+            AddSwaggerDocument(c =>
+            {
+                c.Title = "ConstructionCompany";
+                c.DocumentName = SwaggerDocParts.ConstructionCompany;
+                c.ApiGroupNames = new[] { SwaggerDocParts.ConstructionCompany };
+                c.GenerateXmlObjects = true;
             });
+
+
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 
-namespace Homework2
+namespace Homework3
 {
     public class Program
     {

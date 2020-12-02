@@ -1,12 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Homework3.DAL.Domain;
+using System.ComponentModel.DataAnnotations;
 
-namespace Homework3.DAL.Domain
+namespace Homework3.Models.Requests.Building
 {
     /// <summary>
-    /// Здание.
+    /// Запрос на создание новой записи Здание
     /// </summary>
-    public class Building : BaseEntity
+    public class CreateBuildingRequest
     {
         /// <summary>
         /// Адрес.
@@ -33,10 +33,5 @@ namespace Homework3.DAL.Domain
         /// </summary>
         [StringLength(200)]
         public string Purpose { get; set; }
-
-        /// <summary>
-        /// Застройщик.
-        /// </summary>
-        public ConstructionCompany ConstructionCompany { get; set;}
     }
 }

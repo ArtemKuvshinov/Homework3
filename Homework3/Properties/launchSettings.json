@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Homework2": {
+    "Homework3": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger/index.html",

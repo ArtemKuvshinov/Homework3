@@ -1,40 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace Homework2.Models.DTO
+namespace Homework3.Models.DTO
 {
-   public class BuildingDTO
+   public class BuildingDTO : BaseDto
     {
         /// <summary>
-        /// Адрес здания
+        /// Адрес здания.
         /// </summary>
         [Required]
-        [MaxLength(2000)]
+        [MaxLength(200)]
         public string Address { get; set; }
 
         /// <summary>
-        ///  Назначение здания
+        ///  Назначение здания.
         /// </summary>
         [Required]
         [MaxLength(100)]
         public string Purpose { get; set; }
 
         /// <summary>
-        /// Количетсво этажей
+        /// Количетсво этажей.
         /// </summary>
         [Required]
         public int NumberOfFloors { get; set; }
 
         /// <summary>
-        /// Площадь здания
-        /// </summary>
-        [Required]
-        public long Square { get; set; }
-
-        /// <summary>
-        /// Кадастровый номер
+        /// Кадастровый номер.
         /// </summary>
         [Required]
         [RegularExpression(@"\d{2}[:]\d{6,7}[:]\d{2}[:]\d{2}")]
